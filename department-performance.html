@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department Performance - Finance App</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        
+        <div class="sidebar-overlay"></div>
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <i class='bx bx-line-chart'></i>
+                <span>FinDash</span>
+            </div>
+            
+            <ul class="nav-menu" style="overflow-y: auto; overflow-x: hidden; padding-bottom: 2rem;">
+                <li class="nav-group">General</li>
+                <li class="nav-item"><i class='bx bx-grid-alt'></i><span>Executive Summary</span></li>
+                
+                <li class="nav-group">Financials</li>
+                <li class="nav-item"><i class='bx bx-line-chart-down'></i><span>Revenue Dashboard</span></li>
+                <li class="nav-item"><i class='bx bx-wallet'></i><span>Expense Dashboard</span></li>
+                <li class="nav-item"><i class='bx bx-coin-stack'></i><span>Profitability</span></li>
+                <li class="nav-item"><i class='bx bx-water'></i><span>Cash Flow</span></li>
+                <li class="nav-item"><i class='bx bx-target-lock'></i><span>Budget & Planning</span></li>
+                <li class="nav-item"><i class='bx bx-book-content'></i><span>Balance Sheet</span></li>
+                <li class="nav-item"><i class='bx bx-receipt'></i><span>Income Statement</span></li>
+                <li class="nav-item"><i class='bx bx-list-ul'></i><span>Transaction Explorer</span></li>
+                
+                <li class="nav-group">Analytics</li>
+                <li class="nav-item"><i class='bx bx-group'></i><span>Customer Finance</span></li>
+                <li class="nav-item"><i class='bx bx-box'></i><span>Product Finance</span></li>
+                <li class="nav-item"><i class='bx bx-building-house'></i><span>Department Performance</span></li>
+                <li class="nav-item"><i class='bx bx-trending-up'></i><span>Forecast Dashboard</span></li>
+                <li class="nav-item"><i class='bx bx-shield-quarter'></i><span>Risk Dashboard</span></li>
+
+                <li class="nav-group">System</li>
+                <li class="nav-item"><i class='bx bx-cog'></i><span>Settings</span></li>
+                <li class="nav-item"><i class='bx bx-log-out'></i><span>Logout</span></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="mobile-toggle"><i class='bx bx-menu'></i></button>
+                    <h1>Department Performance</h1>
+                    <p>Enterprise data view for department performance.</p>
+                </div>
+                
+                <div class="header-right">
+                    <div class="time-display" id="ist-time">
+                        <i class='bx bx-time-five'></i>
+                        <span>Loading IST...</span>
+                    </div>
+                    <button class="icon-btn" id="theme-toggle"><i class='bx bx-moon'></i></button>
+                    <button class="icon-btn"><i class='bx bx-bell'></i><span class="badge"></span></button>
+                    <div class="user-profile">
+                        <div class="avatar">A</div>
+                        <span style="font-weight: 500; font-size: 0.95rem;">Alex D.</span>
+                        <i class='bx bx-chevron-down' style="color: var(--text-secondary);"></i>
+                    </div>
+                </div>
+            </header>
+
+            <div class="global-filters glass-panel">
+                <div class="filter-group"><i class='bx bx-calendar'></i> <select><option>This Month</option><option>Last Month</option><option>Quarter</option><option>Financial Year</option><option>Custom Date</option></select></div>
+                <div class="filter-group"><i class='bx bx-globe'></i> <select><option>All Regions</option><option>North America</option><option>Europe</option><option>Asia</option></select></div>
+                <div class="filter-group"><i class='bx bx-building'></i> <select><option>All Departments</option><option>Sales</option><option>Marketing</option><option>Engineering</option><option>HR</option></select></div>
+                <div class="filter-group"><i class='bx bx-box'></i> <select><option>All Products</option><option>Software</option><option>Hardware</option><option>Services</option></select></div>
+                <div class="filter-group"><i class='bx bx-money'></i> <select><option>USD ($)</option><option>EUR (€)</option><option>INR (₹)</option><option>GBP (£)</option></select></div>
+                <button class="btn-primary" style="padding: 0.5rem 1rem; width: auto; margin-left: auto; font-size: 0.9rem; border-radius: 8px;"><i class='bx bx-filter-alt'></i> Apply Filters</button>
+            </div>
+
+            
+
+
+            
+            <div class="kpi-grid">
+                <div class="kpi-card glass-panel">
+                    <div class="kpi-header"><span>Metric 1</span><div class="kpi-icon icon-blue"><i class='bx bx-chart'></i></div></div>
+                    <div class="kpi-value">68.2%</div>
+                </div>
+                <div class="kpi-card glass-panel">
+                    <div class="kpi-header"><span>Metric 2</span><div class="kpi-icon icon-purple"><i class='bx bx-pie-chart'></i></div></div>
+                    <div class="kpi-value">$284k</div>
+                </div>
+                <div class="kpi-card glass-panel">
+                    <div class="kpi-header"><span>Metric 3</span><div class="kpi-icon icon-green"><i class='bx bx-trending-up'></i></div></div>
+                    <div class="kpi-value">+12%</div>
+                </div>
+            </div>
+
+            <div class="charts-grid"><div class="chart-container glass-panel"><div class="chart-title">Budget vs Actuals</div><div class="canvas-wrapper"><canvas id="deptChart1"></canvas></div></div><div class="chart-container glass-panel"><div class="chart-title">Operating Expenses Share</div><div class="canvas-wrapper"><canvas id="deptChart2"></canvas></div></div></div>
+
+        <footer class="global-footer">
+                <div class="footer-left">
+                    <span class="footer-logo"><i class='bx bx-line-chart'></i> FinDash</span>
+                    <span>&copy; 2026</span>
+                </div>
+                <div class="footer-right">
+                    <span><i class='bx bx-refresh'></i> Last Refresh: Just now</span>
+                    <span>Version 2.0 Enterprise</span>
+                    <span>Data Source: Live ERP API</span>
+                </div>
+            </footer>
+        </main>
+
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/department.js"></script>
+</body>
+</html>

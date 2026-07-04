@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Explorer - Finance App</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        
+        <div class="sidebar-overlay"></div>
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <i class='bx bx-line-chart'></i>
+                <span>FinDash</span>
+            </div>
+            
+            <ul class="nav-menu" style="overflow-y: auto; overflow-x: hidden; padding-bottom: 2rem;">
+                <li class="nav-group">General</li>
+                <li class="nav-item"><i class='bx bx-grid-alt'></i><span>Executive Summary</span></li>
+                
+                <li class="nav-group">Financials</li>
+                <li class="nav-item"><i class='bx bx-line-chart-down'></i><span>Revenue Dashboard</span></li>
+                <li class="nav-item"><i class='bx bx-wallet'></i><span>Expense Dashboard</span></li>
+                <li class="nav-item"><i class='bx bx-coin-stack'></i><span>Profitability</span></li>
+                <li class="nav-item"><i class='bx bx-water'></i><span>Cash Flow</span></li>
+                <li class="nav-item"><i class='bx bx-target-lock'></i><span>Budget & Planning</span></li>
+                <li class="nav-item"><i class='bx bx-book-content'></i><span>Balance Sheet</span></li>
+                <li class="nav-item"><i class='bx bx-receipt'></i><span>Income Statement</span></li>
+                <li class="nav-item"><i class='bx bx-list-ul'></i><span>Transaction Explorer</span></li>
+                
+                <li class="nav-group">Analytics</li>
+                <li class="nav-item"><i class='bx bx-group'></i><span>Customer Finance</span></li>
+                <li class="nav-item"><i class='bx bx-box'></i><span>Product Finance</span></li>
+                <li class="nav-item"><i class='bx bx-building-house'></i><span>Department Performance</span></li>
+                <li class="nav-item"><i class='bx bx-trending-up'></i><span>Forecast Dashboard</span></li>
+                <li class="nav-item"><i class='bx bx-shield-quarter'></i><span>Risk Dashboard</span></li>
+
+                <li class="nav-group">System</li>
+                <li class="nav-item"><i class='bx bx-cog'></i><span>Settings</span></li>
+                <li class="nav-item"><i class='bx bx-log-out'></i><span>Logout</span></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="mobile-toggle"><i class='bx bx-menu'></i></button>
+                    <h1>Transaction Explorer</h1>
+                    <p>Enterprise data view for transaction explorer.</p>
+                </div>
+                
+                <div class="header-right">
+                    <div class="time-display" id="ist-time">
+                        <i class='bx bx-time-five'></i>
+                        <span>Loading IST...</span>
+                    </div>
+                    <button class="icon-btn" id="theme-toggle"><i class='bx bx-moon'></i></button>
+                    <button class="icon-btn"><i class='bx bx-bell'></i><span class="badge"></span></button>
+                    <div class="user-profile">
+                        <div class="avatar">A</div>
+                        <span style="font-weight: 500; font-size: 0.95rem;">Alex D.</span>
+                        <i class='bx bx-chevron-down' style="color: var(--text-secondary);"></i>
+                    </div>
+                </div>
+            </header>
+
+            <div class="global-filters glass-panel">
+                <div class="filter-group"><i class='bx bx-calendar'></i> <select><option>This Month</option><option>Last Month</option><option>Quarter</option><option>Financial Year</option><option>Custom Date</option></select></div>
+                <div class="filter-group"><i class='bx bx-globe'></i> <select><option>All Regions</option><option>North America</option><option>Europe</option><option>Asia</option></select></div>
+                <div class="filter-group"><i class='bx bx-building'></i> <select><option>All Departments</option><option>Sales</option><option>Marketing</option><option>Engineering</option><option>HR</option></select></div>
+                <div class="filter-group"><i class='bx bx-box'></i> <select><option>All Products</option><option>Software</option><option>Hardware</option><option>Services</option></select></div>
+                <div class="filter-group"><i class='bx bx-money'></i> <select><option>USD ($)</option><option>EUR (€)</option><option>INR (₹)</option><option>GBP (£)</option></select></div>
+                <button class="btn-primary" style="padding: 0.5rem 1rem; width: auto; margin-left: auto; font-size: 0.9rem; border-radius: 8px;"><i class='bx bx-filter-alt'></i> Apply Filters</button>
+            </div>
+
+            
+
+
+            
+            <div class="kpi-grid">
+                <div class="kpi-card glass-panel">
+                    <div class="kpi-header"><span>Total Value</span><div class="kpi-icon icon-blue"><i class='bx bx-dollar'></i></div></div>
+                    <div class="kpi-value">$2.4M</div>
+                </div>
+                <div class="kpi-card glass-panel">
+                    <div class="kpi-header"><span>YTD Growth</span><div class="kpi-icon icon-green"><i class='bx bx-trending-up'></i></div></div>
+                    <div class="kpi-value">+14%</div>
+                </div>
+                <div class="kpi-card glass-panel">
+                    <div class="kpi-header"><span>Status</span><div class="kpi-icon icon-purple"><i class='bx bx-check-shield'></i></div></div>
+                    <div class="kpi-value">Healthy</div>
+                </div>
+            </div>
+
+            <div class="transactions-container glass-panel">
+                <div class="chart-header">
+                    <div class="chart-title">Transaction Explorer Detailed Report</div>
+                    <button class="btn-primary" style="padding: 0.4rem 1rem; width: auto; font-size: 0.85rem;"><i class='bx bx-export'></i> Export PDF</button>
+                </div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Category / Item</th>
+                                <th>Current Period</th>
+                                <th>Previous Period</th>
+                                <th>Variance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Operating Revenue</td><td>$1,250,000</td><td>$1,100,000</td><td style="color:var(--success)">+13.6%</td></tr>
+                            <tr><td>Cost of Goods Sold</td><td>$450,000</td><td>$420,000</td><td style="color:var(--danger)">+7.1%</td></tr>
+                            <tr><td>Gross Profit</td><td>$800,000</td><td>$680,000</td><td style="color:var(--success)">+17.6%</td></tr>
+                            <tr><td>Operating Expenses</td><td>$320,000</td><td>$300,000</td><td style="color:var(--danger)">+6.6%</td></tr>
+                            <tr style="font-weight: 700;"><td>Net Income</td><td>$480,000</td><td>$380,000</td><td style="color:var(--success)">+26.3%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <footer class="global-footer">
+                <div class="footer-left">
+                    <span class="footer-logo"><i class='bx bx-line-chart'></i> FinDash</span>
+                    <span>&copy; 2026</span>
+                </div>
+                <div class="footer-right">
+                    <span><i class='bx bx-refresh'></i> Last Refresh: Just now</span>
+                    <span>Version 2.0 Enterprise</span>
+                    <span>Data Source: Live ERP API</span>
+                </div>
+            </footer>
+        </main>
+
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/mock-charts.js"></script>
+</body>
+</html>

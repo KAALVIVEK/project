@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance App - Signup</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="bg-animation">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="stars-container">
+            <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+        </div>
+    </div>
+    
+    <div class="theme-toggle-fixed">
+        <button class="icon-btn" id="theme-toggle">
+            <i class='bx bx-moon'></i>
+        </button>
+    </div>
+
+    <div class="auth-split">
+        <div class="auth-banner">
+            <div class="banner-content">
+                <h1>FinDash Enterprise</h1>
+                <p>Advanced financial analytics, real-time SQL database management, and comprehensive reporting for modern finance managers.</p>
+                <div class="banner-stats">
+                    <div class="stat"><i class='bx bx-check-shield'></i> Bank-Grade Security</div>
+                    <div class="stat"><i class='bx bx-data'></i> Real-Time Sync</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="auth-container">
+            <div class="auth-box glass-panel">
+                <div class="auth-header">
+                    <div class="auth-logo">
+                        <i class='bx bx-line-chart'></i>
+                        FinDash
+                    </div>
+                    <p>Create your enterprise management account.</p>
+                </div>
+                <form id="signupForm">
+                    <div class="input-group">
+                        <i class='bx bx-user'></i>
+                        <input type="text" id="fullName" placeholder="Full Name" required>
+                    </div>
+                    <div class="input-group">
+                        <i class='bx bx-envelope'></i>
+                        <input type="email" id="email" placeholder="Corporate Email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class='bx bx-lock-alt'></i>
+                        <input type="password" id="password" placeholder="Create Password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Register Account</button>
+                </form>
+                <div class="auth-footer">
+                    <p>Already have an account? <a href="index.html">Sign in</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
